@@ -1,0 +1,15 @@
+header {
+  background-color: $header-colour;
+  margin-bottom: 100px;
+  height: 100px;
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      padding: $padding - 20px;
+    }
+  }
+}

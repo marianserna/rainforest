@@ -11,31 +11,33 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Products", products_path %></li>
-           <li><%= link_to "New Product", new_product_path %></li>
+    <div id="container">
+      <header>
+        <nav>
+          <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <% if current_user %>
+              <li>
+                <%= link_to 'Logout', session_path(current_user), method: :delete %>
+              </li>
+              <li><%= link_to "Products", products_path %></li>
+              <li><%= link_to "New Product", new_product_path %></li>
+              <li>Hello <%= current_user.email %>!</li>
+            <% else %>
+              <li><%= link_to 'New User', new_user_path %></li>
+              <li><%= link_to 'Login', new_session_path %></li>
+              <br>
+              <!-- <li id="nav-alert">Please login to see your balance</li> -->
+            <% end %>
 
-           <% if current_user %>
-             <p>
-               <%= link_to 'Logout', session_path, method: :delete %>
-             </p>
-             <p>Hello <%= current_user.email %>!</p>
-           <% else %>
-             <p><%= link_to 'New User', new_user_path %></p>
-             |
-             <p><%= link_to 'Login', new_session_path %></p>
-             <p>Please login to see your balance</p>
-           <% end %>
-        </ul>
+          </ul>
 
-        <p class="user-info">
+          <p class="user-info">
 
-        </p>
-      </nav>
-    </header>
-    <%= yield %>
+          </p>
+        </nav>
+      </header>
+      <%= yield %>
+    </div>
   </body>
 </html>
