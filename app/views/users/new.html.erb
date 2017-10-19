@@ -1,0 +1,24 @@
+<h1>New User</h1>
+
+<%= form_for @user do |f| %>
+
+  <div class="input_wrapper">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="input_wrapper">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="input_wrapper">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="input_wrapper">
+    <%= f.submit 'Log in' %>
+  </div>
+
+<% end %>
