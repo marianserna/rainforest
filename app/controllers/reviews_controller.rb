@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   before_action :load_product
+  before_action :load_review, only: [:edit, :update, :destroy]
 
   def create
     @review = @product.reviews.new(review_params)
@@ -14,14 +15,12 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = @product.reviews.find(params[:id])
   end
 
   def update
-    @review = @product.reviews.find(params[:id])
     if @review.update(review_params)
-    flash[:notice] = "Review has been updated"
-    redirect_to product_path(@product)
+      flash[:notice] = "Review has been updated"
+      redirect_to product_path(@product)
     else
       flash[:alert] = "Please fix errors"
       render :edit
@@ -29,12 +28,16 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = @product.reviews.find(params[:id]).destroy
+    @review.destroy
     flash[:notice] = "Review was deleted"
     redirect_to product_path(@product)
   end
 
   private
+
+  def load_review
+    @review = @product.reviews.find(params[:id])
+  end
 
   def review_params
     params.require(:review).permit(:comment, :product_id)
