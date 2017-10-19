@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
 
+  before_action :load_product, only: [:show, :edit, :update, :destroy]
+
   def index
     @products = Product.all
   end
 
   def show
-    @product = Product.find(params[:id])
-    @review = @product.reviews.new
+    @review = Review.new
   end
 
   def new
@@ -25,11 +26,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(product_params)
       flash[:notice] = "#{@product.name} has been updated"
       redirect_to product_path
@@ -40,13 +39,16 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     flash[:notice] = "#{@product.name} was deleted"
     redirect_to products_path
   end
 
   private
+
+  def load_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:name, :description, :price)

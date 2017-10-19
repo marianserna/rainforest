@@ -11,7 +11,7 @@
 <h2>Reviews</h2>
 
 <ul>
-  <% @product.reviews.to_a.select(&:persisted?).each do |review| -%>
+  <% @product.reviews.each do |review| -%>
     <li>
       <%= review.comment %>
       <%= review.created_at %>
