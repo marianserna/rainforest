@@ -4,3 +4,15 @@ $headings-colour: #DCAE1D;
 $body-colour: #00303F;
 $link-inactive-colour: red;
 $link-hover-colour: #600473;
+$user-name-colour: #F2C640;
+
+// Materialize palette
+
+$primary-color: #333333 !default;
+$primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-dark: darken($primary-color, 15%) !default;
+
+$secondary-color: color("teal", "lighten-1") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+$link-color: color("light-blue", "darken-1") !default;

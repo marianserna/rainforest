@@ -1,11 +1,14 @@
-<h1>Our Selection</h1>
+<h2>Our Selection</h2>
 
-<% @products.each do |product| %>
-  <section>
-    <h2><%= product.name %></h2>
-    <p>Description: <%= product.description %></p>
-    <p>Price: <%= product.price_in_dollars %></p>
-    <%= link_to 'Show', product_path(product) %>
-    <img src="<%= product.image.pinterest.url %>" alt="<%= product.name %>">
-  </section>
-<% end %>
+<div class="masonry">
+  <% @products.each do |product| %>
+    <section class="item">
+      <h3><%= product.name %></h3>
+      <p><%= product.description %></p>
+      <p>Price: <%= product.price_in_dollars %></p>
+      <a href="<%= product_path(product) %>">
+        <img class="masonry-image" src="<%= product.image.pinterest.url %>" alt="<%= product.name %>">
+      </a>
+    </section>
+  <% end %>
+</div>

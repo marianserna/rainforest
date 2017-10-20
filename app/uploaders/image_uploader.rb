@@ -33,7 +33,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :pinterest do
-    process resize_to_fill: [300, 500]
+    process resize_to_fit: [300, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
