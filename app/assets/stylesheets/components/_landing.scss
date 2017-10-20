@@ -6,7 +6,25 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.landing-container::before {
   background-image: url('https://images-na.ssl-images-amazon.com/images/I/81D8ueVCzcL._SL1500_.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 64px;
+  bottom: -64px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  filter: contrast(50%);
 }
