@@ -22,9 +22,15 @@
         <%= f.password_field :password_confirmation %>
       </div>
 
-      <div class="input-field">
-        <%= f.label :avatar, 'Image' %>
-        <%= f.file_field :avatar %>
+      <div class="input-field file-field">
+        <div class="btn">
+          <span>Image</span>
+          <%= f.file_field :avatar %>
+        </div>
+
+        <div class="file-path-wrapper">
+          <input class="file-path" type="text">
+        </div>
       </div>
 
       <div class="input-field">
