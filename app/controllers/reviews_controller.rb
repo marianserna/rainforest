@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
   private
 
   def load_review
-    @review = @product.reviews.find(params[:id])
+    @review = @product.reviews.find_by!(id: params[:id], user_id: current_user.id)
   end
 
   def review_params

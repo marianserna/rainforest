@@ -1,10 +1,22 @@
-<ul>
+<div class="row">
   <% product.reviews.order(created_at: :desc).each do |review| -%>
-    <li>
-      <%= review.comment %>
-      <%= review.created_at %>
-      <%= link_to 'Edit Comment', edit_product_review_path(product, review) %>
-      <%= link_to 'Delete', product_review_path(product, review), method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %>
-    </li>
+    <div class="col s12 m4">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">
+            <img class="review-user__avatar circle" src="<%= review.user.avatar.thumb.url %> " alt="<%= review.user.name %>">
+            <%= review.user.name %>
+          </span>
+          <p><%= review.comment %></p>
+          <small><%= review.created_at %></small>
+        </div>
+        <% if current_user && current_user == review.user %>
+          <div class="card-action">
+            <%= link_to 'Edit Comment', edit_product_review_path(product, review) %>
+            <%= link_to 'Delete', product_review_path(product, review), method: :delete, data: {confirm: "Are you sure you want to delete this review?"} %>
+          </div>
+        <% end -%>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
