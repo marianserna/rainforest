@@ -13,8 +13,12 @@
   <body>
     <div id="container">
       <header>
-        <nav>
-          <ul>
+        <nav class="nav-wrapper">
+          <a href="<%= edit_users_path %>" class="brand-logo">
+            <img class="nav-user__avatar circle" src="<%= current_user.avatar.thumb.url %> " alt="<%= current_user.name %>">
+            <%= current_user.name %>
+          </a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><%= link_to "Home", root_path %></li>
             <% if current_user %>
               <li>
@@ -22,12 +26,10 @@
               </li>
               <li><%= link_to "Products", products_path %></li>
               <li><%= link_to "New Product", new_product_path %></li>
-              <li>Hello <%= current_user.email %>!</li>
             <% else %>
               <li><%= link_to 'New User', new_user_path %></li>
               <li><%= link_to 'Login', new_session_path %></li>
               <br>
-              <!-- <li id="nav-alert">Please login to see your balance</li> -->
             <% end %>
 
           </ul>
