@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 
+  before_action :require_login
   before_action :load_product
   before_action :load_review, only: [:edit, :update, :destroy]
 
