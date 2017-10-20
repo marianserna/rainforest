@@ -26,6 +26,11 @@
   </div>
 
   <div class="input_wrapper">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="input_wrapper">
     <%= f.submit %> | <%= link_to 'Cancel', products_path  %>
   </div>
 

@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
+  mount_uploader :image, ImageUploader
   has_many :reviews
-  
-  validates :name, :description, :price, presence: true
+
+  validates :name, :description, :price, :image, presence: true
 
   def price_in_dollars
     price_in_dollars = price.to_f

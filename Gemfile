@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'materialize-sass', '~> 0.100.2'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
