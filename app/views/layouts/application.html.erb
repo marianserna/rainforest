@@ -13,18 +13,20 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="<%= edit_users_path %>" class="brand-logo">
-          <img class="nav-user__avatar circle" src="<%= current_user.avatar.thumb.url %> " alt="<%= current_user.name %>">
-          <span class="nav-user__name"><%= current_user.name %></span>
-        </a>
+        <% if current_user %>
+          <a href="<%= edit_users_path %>" class="brand-logo">
+            <img class="nav-user__avatar circle" src="<%= current_user.avatar.thumb.url %> " alt="<%= current_user.name %>">
+            <span class="nav-user__name"><%= current_user.name %></span>
+          </a>
+        <% end %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><%= link_to "Home", root_path %></li>
           <% if current_user %>
+            <li><%= link_to "Products", products_path %></li>
+            <li><%= link_to "New Product", new_product_path %></li>
             <li>
               <%= link_to 'Logout', session_path(current_user), method: :delete %>
             </li>
-            <li><%= link_to "Products", products_path %></li>
-            <li><%= link_to "New Product", new_product_path %></li>
           <% else %>
             <li><%= link_to 'New User', new_user_path %></li>
             <li><%= link_to 'Login', new_session_path %></li>

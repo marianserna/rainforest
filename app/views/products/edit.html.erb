@@ -1,37 +1,3 @@
 <h1>Edit Product</h1>
 
-<%= form_for @product do |f| %>
-
-<% if @product.errors.any? %>
-<ul>
-  <% @product.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
-
-  <div class="input_wrapper">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="input_wrapper">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="input_wrapper">
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-  </div>
-
-  <div class="input_wrapper">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="input_wrapper">
-    <%= f.submit %> | <%= link_to 'Cancel', products_path  %>
-  </div>
-
-<% end -%>
+<%= render 'form', product: @product %>

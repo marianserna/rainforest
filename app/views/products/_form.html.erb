@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col s12 m6 offset-m3">
+    <%= form_for product do |f| %>
+
+      <% if product.errors.any? %>
+      <ul>
+        <% product.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+      <% end %>
+
+      <div class="input-field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="input-field">
+        <%= f.label :description %>
+        <%= f.text_area :description, { class: "materialize-textarea" } %>
+      </div>
+
+      <div class="input-field">
+        <%= f.label :price %>
+        <%= f.number_field :price, { step: "0.01" } %>
+      </div>
+
+      <div class="input-field file-field">
+        <div class="btn">
+          <span>Image</span>
+          <%= f.file_field :image %>
+        </div>
+
+        <div class="file-path-wrapper">
+          <input class="file-path" type="text">
+        </div>
+      </div>
+
+      <div class="input-field">
+        <%= f.submit 'Save', { class: "btn" } %> | <%= link_to 'Cancel', products_path, { class: "btn" }  %>
+      </div>
+
+    <% end -%>
+
+  </div>
+</div>
