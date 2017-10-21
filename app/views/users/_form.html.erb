@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col s12 m6 offset-m3">
-    <%= form_for user do |f| %>
+    <%= form_for user, { url: user.persisted? ? edit_users_path : users_path } do |f| %>
 
       <div class="input-field">
         <%= f.label :name %>
